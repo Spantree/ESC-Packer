@@ -54,7 +54,9 @@ elasticsearch::plugin { 'elasticsearch/elasticsearch-cloud-aws/2.0.0.RC1':
   module_dir  => 'bigdesk',
 }
 
-class {'nginx': }
+class {'nginx': 
+  confd_purge => true,
+}
 nginx::resource::upstream { 'elasticsearch':
   members => [
     'localhost:9200',
@@ -66,8 +68,8 @@ nginx::resource::vhost { 'escluster-prod.chicago.com':
   auth_basic => "Restricted",
   auth_basic_user_file => "/etc/nginx/.htpasswd"
 }
-htpasswd { 'elasticsearch':
-  cryptpasswd => "",
+htpasswd { 'packer':
+  cryptpasswd => "$apr1$zf2cX.13$97Z/jAx2hYWzKqrkeeMlV0"
   target      => '/etc/nginx/.htpasswd',
   require     => Class['nginx']
 }
