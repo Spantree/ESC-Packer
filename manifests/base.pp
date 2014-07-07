@@ -69,7 +69,7 @@ nginx::resource::vhost { 'escluster-prod.chicago.com':
   auth_basic_user_file => "/etc/nginx/.htpasswd"
 }
 htpasswd { 'packer':
-  cryptpasswd => "$apr1$zf2cX.13$97Z/jAx2hYWzKqrkeeMlV0",
+  cryptpasswd => '$apr1$m4F/vHRf$rxOJPFsdQAUWjMXKmyvnv1'
   target      => '/etc/nginx/.htpasswd',
   require     => Class['nginx']
 }
