@@ -76,7 +76,7 @@ htpasswd { 'packer':
 file { "/etc/nginx/.htpasswd":
   owner => "nginx",
   group => "nginx",
-  require => Htpasswd['elasticsearch']
+  require => Htpasswd['packer']
 }
 
 
