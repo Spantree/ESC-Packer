@@ -76,6 +76,7 @@ htpasswd { 'packer':
 file { "/etc/nginx/.htpasswd":
   owner => "nginx",
   group => "nginx",
+  mode  => "755",
   require => Htpasswd['packer']
 }
 
